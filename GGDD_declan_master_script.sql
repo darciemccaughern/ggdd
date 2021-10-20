@@ -51,14 +51,13 @@ ADD CONSTRAINT postCodeValidation
     REGEXP_LIKE(postalCode, '[A-Z][A-Z][0-9][A-Z][[:space:]][0-9][A-Z][A-Z]')or
     REGEXP_LIKE(postalCode, '[A-Z][0-9][A-Z][[:space:]][0-9][A-Z][A-Z]'));
 
+
 CREATE TABLE salesEmployee(
-salesEmployeeId SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
-employeeId SMALLINT UNSIGNED NOT NULL,
+employeeId SMALLINT UNSIGNED NOT NULL PRIMARY KEY,
 commissionRate DECIMAL(5,2),
 totalSalesTerm DECIMAL(11,2),
 teamNo INT,
 salesManager BOOLEAN,
-primary key (salesEmployeeId),
 CONSTRAINT fkEmployeeIDSales FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
 );
 
@@ -75,8 +74,7 @@ GRANT INSERT ON GGDD_declan.HR TO 'HR'@'academy2020.cpc8rvmbbd9k.eu-west-2.rds.a
 */
 
 CREATE TABLE Finance (
- FinanceId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
- employeeId SMALLINT UNSIGNED NOT NULL,
+ employeeId SMALLINT UNSIGNED NOT NULL PRIMARY KEY,
  CONSTRAINT fkFinanceEmployeeId FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
  );
 
@@ -113,11 +111,7 @@ SELECT *
 
 select * from EmployeesInFinance;
 
-	FROM employee
-	INNER JOIN HR using(employeeId)
-	WHERE employee.employeeId = specificEmployeeId;
 
-Drop procedure EmployeesPerDepartment;
 
 
 
@@ -127,5 +121,7 @@ SELECT *
 	INNER JOIN salesEmployee using(employeeId);
 
 select * from EmployeesInSales;
+
+
     
     
