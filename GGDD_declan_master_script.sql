@@ -40,6 +40,7 @@ employeeId SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
  CONSTRAINT fkHREmployeeId FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
  );
  
+ -- Post code validation
 ALTER TABLE Employee
 ADD CONSTRAINT postCodeValidation
 	CHECK(REGEXP_LIKE(postalCode, '[A-Z][A-Z][0-9][[:space:]][0-9][A-Z][A-Z]') OR
@@ -59,5 +60,7 @@ salesManager BOOLEAN,
 primary key (salesEmployeeId),
 CONSTRAINT fkEmployeeIDSales FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
 );
+
+
     
     
