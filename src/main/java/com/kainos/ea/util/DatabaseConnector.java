@@ -33,7 +33,7 @@ public class DatabaseConnector {
                                 + "user, password, and host properties.");
 
             conn = DriverManager.getConnection("jdbc:mysql://"
-                    + host + "/a_team_db_gareth?useSSL=false", user, password);
+                    + host + "/GGDD_declan?useSSL=false", user, password);
             return conn;
 
         } catch (Exception e) {
