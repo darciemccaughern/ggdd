@@ -39,6 +39,7 @@ employeeId SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
  employeeId SMALLINT UNSIGNED NOT NULL,
  CONSTRAINT fkHREmployeeId FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
  );
+ 
  -- Post code validation
 ALTER TABLE Employee
 ADD CONSTRAINT postCodeValidation
