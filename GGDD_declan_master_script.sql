@@ -78,6 +78,13 @@ CREATE TABLE Finance (
  CONSTRAINT fkFinanceEmployeeId FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
  );
  
+ -- Deleting HR ID and making EmpID PK :)
+ ALTER TABLE HR
+ DROP COLUMN HR_Id;
+ 
+ ALTER TABLE HR
+ ADD PRIMARY KEY(employeeId);
+ 
 
     
     
