@@ -34,6 +34,7 @@ public class DatabaseConnector {
 
             conn = DriverManager.getConnection("jdbc:mysql://"
                     + host + "/GGDD_declan?useSSL=false", user, password);
+
             return conn;
 
         } catch (Exception e) {
