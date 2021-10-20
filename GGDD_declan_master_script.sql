@@ -77,5 +77,7 @@ CREATE TABLE Finance (
  employeeId SMALLINT UNSIGNED NOT NULL,
  CONSTRAINT fkFinanceEmployeeId FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
  );
+ 
+ --darcie smells
     
     
