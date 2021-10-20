@@ -8,11 +8,12 @@ public class Employee {
     private String address;
     private String city;
     private String county;
+    private String sortCode;
     private String postalCode;
     private String bankNo;
     private String nin;
 
-    public Employee(int employeeId,float salary, String fName, String lName, String address, String city, String county, String postalCode, String bankNo, String nin) {
+    public Employee(int employeeId,float salary, String fName, String lName, String address, String city, String county, String postalCode, String bankNo, String nin,String sortCode) {
         this.setEmployeeId(employeeId);
         this.setSalary(salary);
         this.setfName(fName);
@@ -23,6 +24,7 @@ public class Employee {
         this.setPostalCode(postalCode);
         this.setBankNo(bankNo);
         this.setNin(nin);
+        this.setSortCode(sortCode);
     }
 
 
@@ -104,5 +106,13 @@ public class Employee {
 
     public void setNin(String nin) {
         this.nin = nin;
+    }
+
+    public String getSortCode() {
+        return sortCode;
+    }
+
+    public void setSortCode(String sortCode) {
+        this.sortCode = sortCode;
     }
 }
