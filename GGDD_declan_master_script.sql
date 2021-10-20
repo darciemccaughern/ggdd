@@ -79,7 +79,8 @@ CREATE TABLE Finance (
  employeeId SMALLINT UNSIGNED NOT NULL,
  CONSTRAINT fkFinanceEmployeeId FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
  );
- /*
+
+ 
  DELIMITER //
 CREATE procedure EmployeesPerDepartment (IN employeeId SMALLINT)
 	BEGIN
@@ -90,8 +91,15 @@ CREATE procedure EmployeesPerDepartment (IN employeeId SMALLINT)
 	END //
 DELIMITER ;
 
+CREATE VIEW EmployeesInHr AS
+SELECT *
+	FROM employee
+	INNER JOIN HR using(employeeId)
+	WHERE employee.employeeId = specificEmployeeId;
+
 Drop procedure EmployeesPerDepartment;
-*/
+
+
 
 
     
