@@ -1,6 +1,6 @@
 package com.kainos.ea.data;
 
-import com.kainos.ea.model.City;
+
 import com.kainos.ea.model.Employee;
 import com.kainos.ea.model.SalesEmployee;
 
@@ -21,14 +21,10 @@ public class EmployeeData {
             statement.setFloat(1, employee.getSalary());
             statement.setString(2, employee.getfName());
             statement.setString(3, employee.getlName());
-            statement.setString(4, employee.getEmail());
             statement.setString(5, employee.getAddress());
-            statement.setString(6, employee.getAddress2());
             statement.setString(7, employee.getCity());
             statement.setString(8, employee.getCounty());
             statement.setString(9, employee.getPostalCode());
-            statement.setString(10, employee.getCountry());
-            statement.setString(11, employee.getPhoneNo());
             statement.setString(12, employee.getBankNo());
             statement.setString(13, employee.getNin());
 
@@ -46,7 +42,7 @@ public class EmployeeData {
     }
 
     public Collection<Employee> selectAllEmployees(Connection connection){
-        Collection<Employee> employees = new ArrayList<>();
+        Collection<Employee> employees = new ArrayList();
 
         try {
             String query = "SELECT * FROM employee";
@@ -60,14 +56,10 @@ public class EmployeeData {
                         rs.getFloat("salary"),
                         rs.getString("fName"),
                         rs.getString("lName"),
-                        rs.getString("email"),
                         rs.getString("address"),
-                        rs.getString("address2"),
                         rs.getString("city"),
                         rs.getString("county"),
                         rs.getString("postalCode"),
-                        rs.getString("country"),
-                        rs.getString("phoneNo"),
                         rs.getString("bankNo"),
                         rs.getString("nin")
                 );
@@ -94,14 +86,10 @@ public class EmployeeData {
                         rs.getFloat("salary"),
                         rs.getString("fName"),
                         rs.getString("lName"),
-                        rs.getString("email"),
                         rs.getString("address"),
-                        rs.getString("address2"),
                         rs.getString("city"),
                         rs.getString("county"),
                         rs.getString("postalCode"),
-                        rs.getString("country"),
-                        rs.getString("phoneNo"),
                         rs.getString("bankNo"),
                         rs.getString("nin")
                 );

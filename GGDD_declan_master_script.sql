@@ -80,7 +80,6 @@ CREATE TABLE Finance (
  CONSTRAINT fkFinanceEmployeeId FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
  );
 
- 
  DELIMITER //
 CREATE procedure EmployeesPerDepartment (IN employeeId SMALLINT)
 	BEGIN
@@ -98,7 +97,6 @@ SELECT *
 	WHERE employee.employeeId = specificEmployeeId;
 
 Drop procedure EmployeesPerDepartment;
-
 
 
 
