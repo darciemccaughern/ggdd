@@ -19,11 +19,11 @@ employeeId SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
     );
     
     
- --Already done
+ -- Already done
  INSERT INTO Employee(fName, lName, address, city, county, postalCode, accNumber, sortCode, startSalary, nin) 
  VALUES ("Darcie", "Grace", "32 Woodburn Road", "Belfast", "Antrim", "BT6 8GH", 817216254617, 098675, 15600, "PK091789G");
 
- --New Employees
+ -- New Employees
  INSERT INTO Employee(fName, lName, address, city, county, postalCode, accNumber, sortCode, startSalary, nin) 
  VALUES ("Gillon", "Brown", "02 Pearl Street", "Belfast", "Antrim", "BT9 8FG", 891782678526, 018926, 15600, "PJ017825T");
 
@@ -33,7 +33,18 @@ employeeId SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
  INSERT INTO Employee(fName, lName, address, city, county, postalCode, accNumber, sortCode, startSalary, nin) 
  VALUES ("Declan", "White", "89 Falls Road", "Belfast", "Antrim", "BT9 9JH", 819267187654, 817276, 15600, "PL817265P");
     
+/* alter TABLE Employee 
+add constraint postalCodeValidation 
+check (postalCode like ('[A-Z][0123456789][\s][0-9][A-Z][A-Z]' or '[A-Z][0-9][0-9][\s][0-9][A-Z][A-Z]' or '[A-Z][A-Z][0-9][\s][0-9][A-Z][A-Z]' or
+'[A-Z][A-Z][0-9][0-9][\s][0-9][A-Z][A-Z]' or '[A-Z][0-9][A-Z][\s][0-9][A-Z][A-Z]' or '[A-Z][A-Z][0-9][A-Z][\s][0-9][A-Z][A-Z]'));
+
+SELECT * from Employee WHERE postalCode like ("[A-Z][A-Z][0-9]" "[0-9][A-Z][A-Z]" );
+
     
+Select * from Employee where postalCode is not null;
+*/
+
+
      
     
     
