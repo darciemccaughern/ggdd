@@ -32,7 +32,14 @@ employeeId SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
 
  INSERT INTO Employee(fName, lName, address, city, county, postalCode, accNumber, sortCode, startSalary, nin) 
  VALUES ("Declan", "White", "89 Falls Road", "Belfast", "Antrim", "BT9 9JH", 819267187654, 817276, 15600, "PL817265P");
-    
+ 
+
+ CREATE TABLE HR (
+ HR_Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+ employeeId SMALLINT UNSIGNED NOT NULL,
+ CONSTRAINT fkHREmployeeId FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
+ );
+ 
 /* alter TABLE Employee 
 add constraint postalCodeValidation 
 check (postalCode like ('[A-Z][0123456789][\s][0-9][A-Z][A-Z]' or '[A-Z][0-9][0-9][\s][0-9][A-Z][A-Z]' or '[A-Z][A-Z][0-9][\s][0-9][A-Z][A-Z]' or
@@ -54,7 +61,5 @@ salesManager BOOLEAN,
 primary key (salesEmployeeId),
 CONSTRAINT fkEmployeeIDSales FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
 );
-
-     
     
     
