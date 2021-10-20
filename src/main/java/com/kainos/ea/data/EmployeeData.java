@@ -14,8 +14,9 @@ public class EmployeeData {
         int auto_id = -1;
         try {
 
-            String query = "INSERT INTO employee (fName, lName, address, city, county, postalCode, sortCode, startSalary, nin)"
-                    + " VALUES (?,?,?,?,?,?,?,?,?)";
+
+            String query = "INSERT INTO employee (fName, lName, address, city, county, postalCode, sortCode, startSalary, nin, isBuisnessHead)"
+                    + " VALUES (?,?,?,?,?,?,?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, employee.getfName());
@@ -27,6 +28,8 @@ public class EmployeeData {
             statement.setString(7,employee.getSortCode());
             statement.setFloat(8, employee.getSalary());
             statement.setString(9, employee.getNin());
+            statement.setInt(10,employee.getIsBuisnessHead());
+
 
             statement.executeUpdate();
 
@@ -62,6 +65,7 @@ public class EmployeeData {
                         rs.getString("postalCode"),
                         rs.getString("bankNo"),
                         rs.getString("nin"),
+                        rs.getInt("isBusinessHead"),
                         rs.getString("sortCode")
                 );
 
@@ -93,7 +97,8 @@ public class EmployeeData {
                         rs.getString("postalCode"),
                         rs.getString("bankNo"),
                         rs.getString("nin"),
-                        rs.getString("sortCode")
+                        rs.getString("sortCode"),
+                        rs.getInt("isBusinessHead")
                 );
 
                 return employee;
