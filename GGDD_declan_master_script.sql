@@ -81,6 +81,14 @@ CREATE TABLE Finance (
  );
 
  
+
+ -- Deleting HR ID and making EmpID PK :)
+ ALTER TABLE HR
+ DROP COLUMN HR_Id;
+ 
+ ALTER TABLE HR
+ ADD PRIMARY KEY(employeeId);
+ 
  DELIMITER //
 CREATE procedure EmployeesPerDepartment (IN employeeId SMALLINT)
 	BEGIN
@@ -104,6 +112,14 @@ SELECT *
 	INNER JOIN Finance using(employeeId);
 
 select * from EmployeesInFinance;
+
+	FROM employee
+	INNER JOIN HR using(employeeId)
+	WHERE employee.employeeId = specificEmployeeId;
+
+Drop procedure EmployeesPerDepartment;
+
+
 
 CREATE VIEW EmployeesInSales AS
 SELECT *
