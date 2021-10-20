@@ -14,7 +14,7 @@ public class EmployeeData {
         int auto_id = -1;
         try {
 
-            String query = "INSERT INTO employee (salary, fName, lName, email, address, address2, city, county, postalCode, country, phoneNo, bankNo, nin)"
+            String query = "INSERT INTO employee (salary, fName, lName, email, address, address2, city, county, postalCode, country, phoneNo, bankNo, nin,businessHead)"
                     + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -27,6 +27,7 @@ public class EmployeeData {
             statement.setString(9, employee.getPostalCode());
             statement.setString(12, employee.getBankNo());
             statement.setString(13, employee.getNin());
+            statement.setInt(14, employee.getIsBusnessHead());
 
             statement.executeUpdate();
 
