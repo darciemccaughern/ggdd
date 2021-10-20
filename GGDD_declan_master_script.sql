@@ -79,6 +79,7 @@ CREATE TABLE Finance (
  employeeId SMALLINT UNSIGNED NOT NULL,
  CONSTRAINT fkFinanceEmployeeId FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
  );
+<<<<<<< HEAD
  /*
  DELIMITER //
 CREATE procedure EmployeesPerDepartment (IN employeeId SMALLINT)
@@ -93,6 +94,9 @@ DELIMITER ;
 Drop procedure EmployeesPerDepartment;
 */
 
+=======
+ 
+>>>>>>> b433c4763a165c9b8f5328933326299984073ccb
 
     
     
