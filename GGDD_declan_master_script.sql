@@ -44,6 +44,16 @@ SELECT * from Employee WHERE postalCode like ("[A-Z][A-Z][0-9]" "[0-9][A-Z][A-Z]
 Select * from Employee where postalCode is not null;
 */
 
+CREATE TABLE salesEmployee(
+salesEmployeeId SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+employeeId SMALLINT UNSIGNED NOT NULL,
+commissionRate DECIMAL(5,2),
+totalSalesTerm DECIMAL(11,2),
+teamNo INT,
+salesManager BOOLEAN,
+primary key (salesEmployeeId),
+CONSTRAINT fkEmployeeIDSales FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
+);
 
      
     
