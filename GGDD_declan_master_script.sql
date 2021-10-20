@@ -39,17 +39,15 @@ employeeId SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
  employeeId SMALLINT UNSIGNED NOT NULL,
  CONSTRAINT fkHREmployeeId FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
  );
- 
-/* alter TABLE Employee 
-add constraint postalCodeValidation 
-check (postalCode like ('[A-Z][0123456789][\s][0-9][A-Z][A-Z]' or '[A-Z][0-9][0-9][\s][0-9][A-Z][A-Z]' or '[A-Z][A-Z][0-9][\s][0-9][A-Z][A-Z]' or
-'[A-Z][A-Z][0-9][0-9][\s][0-9][A-Z][A-Z]' or '[A-Z][0-9][A-Z][\s][0-9][A-Z][A-Z]' or '[A-Z][A-Z][0-9][A-Z][\s][0-9][A-Z][A-Z]'));
-
-SELECT * from Employee WHERE postalCode like ("[A-Z][A-Z][0-9]" "[0-9][A-Z][A-Z]" );
-
-    
-Select * from Employee where postalCode is not null;
-*/
+ -- Post code validation
+ALTER TABLE Employee
+ADD CONSTRAINT postCodeValidation
+	CHECK(REGEXP_LIKE(postalCode, '[A-Z][A-Z][0-9][[:space:]][0-9][A-Z][A-Z]') OR
+	REGEXP_LIKE(postalCode, '[A-Z][A-Z][0-9][0-9][[:space:]][0-9][A-Z][A-Z]') OR
+	REGEXP_LIKE(postalCode, '[A-Z][0-9][0-9][[:space:]][0-9][A-Z][A-Z]') OR
+    REGEXP_LIKE(postalCode, '[A-Z][0-9][[:space:]][0-9][A-Z][A-Z]') or
+    REGEXP_LIKE(postalCode, '[A-Z][A-Z][0-9][A-Z][[:space:]][0-9][A-Z][A-Z]')or
+    REGEXP_LIKE(postalCode, '[A-Z][0-9][A-Z][[:space:]][0-9][A-Z][A-Z]'));
 
 CREATE TABLE salesEmployee(
 salesEmployeeId SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -61,5 +59,7 @@ salesManager BOOLEAN,
 primary key (salesEmployeeId),
 CONSTRAINT fkEmployeeIDSales FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
 );
+
+
     
     
