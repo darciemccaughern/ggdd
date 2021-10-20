@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ggdd.iml" filepath="$PROJECT_DIR$/.idea/ggdd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaWebServiceSample.iml" filepath="$PROJECT_DIR$/JavaWebServiceSample.iml" />
     </modules>
   </component>
 </project>
