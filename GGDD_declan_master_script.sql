@@ -78,6 +78,6 @@ CREATE TABLE Finance (
  CONSTRAINT fkFinanceEmployeeId FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
  );
  
- -- darcie smells good
+
     
     
