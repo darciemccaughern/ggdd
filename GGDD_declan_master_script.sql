@@ -63,13 +63,19 @@ CONSTRAINT fkEmployeeIDSales FOREIGN KEY (employeeId) REFERENCES Employee (emplo
 
 
 
-
+/*
 -- Users and view permissions
 
 CREATE USER 'HR'@'academy2020.cpc8rvmbbd9k.eu-west-2.rds.amazonaws.com' IDENTIFIED BY 'HRpassword';
 
 GRANT INSERT ON GGDD_declan.HR TO 'HR'@'academy2020.cpc8rvmbbd9k.eu-west-2.rds.amazonaws.com';
 
+*/
 
+CREATE TABLE Finance (
+ FinanceId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+ employeeId SMALLINT UNSIGNED NOT NULL,
+ CONSTRAINT fkFinanceEmployeeId FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
+ );
     
     
