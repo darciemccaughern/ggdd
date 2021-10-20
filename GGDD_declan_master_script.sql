@@ -19,11 +19,11 @@ employeeId SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
     );
     
     
- --Already done
+ -- Already done
  INSERT INTO Employee(fName, lName, address, city, county, postalCode, accNumber, sortCode, startSalary, nin) 
  VALUES ("Darcie", "Grace", "32 Woodburn Road", "Belfast", "Antrim", "BT6 8GH", 817216254617, 098675, 15600, "PK091789G");
 
- --New Employees
+ -- New Employees
  INSERT INTO Employee(fName, lName, address, city, county, postalCode, accNumber, sortCode, startSalary, nin) 
  VALUES ("Gillon", "Brown", "02 Pearl Street", "Belfast", "Antrim", "BT9 8FG", 891782678526, 018926, 15600, "PJ017825T");
 
