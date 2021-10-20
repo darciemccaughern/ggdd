@@ -61,7 +61,8 @@ public class EmployeeData {
                         rs.getString("county"),
                         rs.getString("postalCode"),
                         rs.getString("bankNo"),
-                        rs.getString("nin")
+                        rs.getString("nin"),
+                        rs.getInt("isBusinessHead")
                 );
 
                 employees.add(employee);
@@ -91,7 +92,8 @@ public class EmployeeData {
                         rs.getString("county"),
                         rs.getString("postalCode"),
                         rs.getString("bankNo"),
-                        rs.getString("nin")
+                        rs.getString("nin"),
+                        rs.getInt("isBusinessHead")
                 );
 
                 return employee;
