@@ -23,6 +23,7 @@
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
 database.properties
+target
 
 # Gradle
 .idea/**/gradle.xml

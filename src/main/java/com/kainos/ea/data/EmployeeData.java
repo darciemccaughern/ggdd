@@ -10,7 +10,7 @@ import java.util.Collection;
 
 public class EmployeeData {
 
-    public int insertEmployeeIntoDatabase(Employee employee, Connection connection) {
+    public void insertEmployeeIntoDatabase(Employee employee, Connection connection) {
         int auto_id = -1;
         try {
 
@@ -35,11 +35,9 @@ public class EmployeeData {
             rs.next();
             auto_id = rs.getInt(1);
 
-            return auto_id;
         } catch(SQLException ex){
             ex.printStackTrace(); // Bad practice alert!
         }
-        return auto_id;
     }
 
     public Collection<Employee> selectAllEmployees(Connection connection){

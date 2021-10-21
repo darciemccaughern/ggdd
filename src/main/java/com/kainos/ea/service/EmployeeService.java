@@ -13,10 +13,9 @@ public class EmployeeService {
     public static EmployeeData employeeData = new EmployeeData();
     public static DatabaseConnector databaseConnector = new DatabaseConnector();
 
-    public int insertEmployeeIntoDatabase(Employee employee) {
+    public void insertEmployeeIntoDatabase(Employee employee) {
         Connection connection = databaseConnector.getConnection();
         int auto_id = employeeData.insertEmployeeIntoDatabase(employee,connection);
-        return auto_id;
     }
 
     public Collection<Employee> selectAllEmployees(){
