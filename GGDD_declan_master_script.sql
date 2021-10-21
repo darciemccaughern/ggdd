@@ -56,7 +56,6 @@ salesEmployeeId SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
 employeeId SMALLINT UNSIGNED NOT NULL,
 commissionRate DECIMAL(5,2),
 totalSalesTerm DECIMAL(11,2),
-teamNo INT,
 salesManager BOOLEAN,
 primary key (salesEmployeeId),
 CONSTRAINT fkEmployeeIDSales FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
@@ -219,6 +218,26 @@ Insert Into Employee ( fName, lName, address, city, county, postalCode, accNumbe
 
 SELECT * FROM Employee;
 
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 1,'0.08','15501','1' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 2,'0.08','66189','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 3,'0.06','58963','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 4,'0.02','18747','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 5,'0.03','16125','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 6,'0.06','10656','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 7,'0.08','32125','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 8,'0.07','45781','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 9,'0.03','98794','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 10,'0.03','54470','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 11,'0.02','11207','1' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 12,'0.01','48131','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 13,'0.03','34584','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 14,'0.04','33251','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 15,'0.045','15561','1' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 16,'0.06','49780','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 17,'0.04','26942','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 18,'0.07','72101','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 19,'0.02','48857','0' );
+Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 20,'0.02','59734','0' );
 
-    
+
     
