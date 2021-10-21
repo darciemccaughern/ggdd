@@ -51,13 +51,12 @@ ADD CONSTRAINT postCodeValidation
     REGEXP_LIKE(postalCode, '[A-Z][A-Z][0-9][A-Z][[:space:]][0-9][A-Z][A-Z]')or
     REGEXP_LIKE(postalCode, '[A-Z][0-9][A-Z][[:space:]][0-9][A-Z][A-Z]'));
 
+
 CREATE TABLE salesEmployee(
-salesEmployeeId SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
-employeeId SMALLINT UNSIGNED NOT NULL,
+employeeId SMALLINT UNSIGNED NOT NULL PRIMARY KEY,
 commissionRate DECIMAL(5,2),
 totalSalesTerm DECIMAL(11,2),
 salesManager BOOLEAN,
-primary key (salesEmployeeId),
 CONSTRAINT fkEmployeeIDSales FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
 );
 
@@ -74,11 +73,18 @@ GRANT INSERT ON GGDD_declan.HR TO 'HR'@'academy2020.cpc8rvmbbd9k.eu-west-2.rds.a
 */
 
 CREATE TABLE Finance (
- FinanceId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
- employeeId SMALLINT UNSIGNED NOT NULL,
+ employeeId SMALLINT UNSIGNED NOT NULL PRIMARY KEY,
  CONSTRAINT fkFinanceEmployeeId FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
  );
 
+ 
+
+ -- Deleting HR ID and making EmpID PK :)
+ ALTER TABLE HR
+ DROP COLUMN HR_Id;
+ 
+ ALTER TABLE HR
+ ADD PRIMARY KEY(employeeId);
  
  DELIMITER //
 CREATE procedure EmployeesPerDepartment (IN employeeId SMALLINT)
@@ -103,6 +109,10 @@ SELECT *
 	INNER JOIN Finance using(employeeId);
 
 select * from EmployeesInFinance;
+
+
+
+
 
 CREATE VIEW EmployeesInSales AS
 SELECT *
@@ -238,6 +248,5 @@ Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesMan
 Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 18,'0.07','72101','0' );
 Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 19,'0.02','48857','0' );
 Insert Into salesEmployee ( EmployeeId, commissionRate, totalSalesTerm, salesManager) Values ( 20,'0.02','59734','0' );
-
 
     
