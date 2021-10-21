@@ -2,7 +2,6 @@ package com.kainos.ea.data;
 
 
 import com.kainos.ea.model.Employee;
-import com.kainos.ea.model.SalesEmployee;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,24 +9,25 @@ import java.util.Collection;
 
 public class EmployeeData {
 
-    public void insertEmployeeIntoDatabase(Employee employee, Connection connection) {
+    public int insertEmployeeIntoDatabase(Employee employee, Connection connection) {
         int auto_id = -1;
         try {
 
-            String query = "INSERT INTO employee (salary, fName, lName, email, address, address2, city, county, postalCode, country, phoneNo, bankNo, nin,businessHead)"
-                    + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+            String query = "INSERT INTO employee (fName, lName, address, city, county, postalCode, sortCode, startSalary, nin, sortCode)"
+                    + " VALUES (?,?,?,?,?,?,?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            statement.setFloat(1, employee.getSalary());
-            statement.setString(2, employee.getfName());
-            statement.setString(3, employee.getlName());
-            statement.setString(5, employee.getAddress());
-            statement.setString(7, employee.getCity());
-            statement.setString(8, employee.getCounty());
-            statement.setString(9, employee.getPostalCode());
-            statement.setString(12, employee.getBankNo());
-            statement.setString(13, employee.getNin());
-            statement.setInt(14, employee.getIsBusnessHead());
+            statement.setString(1, employee.getfName());
+            statement.setString(2, employee.getlName());
+            statement.setString(3, employee.getAddress());
+            statement.setString(4, employee.getCity());
+            statement.setString(5, employee.getCounty());
+            statement.setString(6, employee.getPostalCode());
+            statement.setString(7,employee.getSortCode());
+            statement.setFloat(8, employee.getSalary());
+            statement.setString(9, employee.getNin());
+
 
             statement.executeUpdate();
 
@@ -38,6 +38,7 @@ public class EmployeeData {
         } catch(SQLException ex){
             ex.printStackTrace(); // Bad practice alert!
         }
+        return auto_id;
     }
 
     public Collection<Employee> selectAllEmployees(Connection connection){
@@ -61,7 +62,7 @@ public class EmployeeData {
                         rs.getString("postalCode"),
                         rs.getString("bankNo"),
                         rs.getString("nin"),
-                        rs.getInt("isBusinessHead")
+                        rs.getString("sortCode")
                 );
 
                 employees.add(employee);
@@ -92,7 +93,7 @@ public class EmployeeData {
                         rs.getString("postalCode"),
                         rs.getString("bankNo"),
                         rs.getString("nin"),
-                        rs.getInt("isBusinessHead")
+                        rs.getString("sortCode")
                 );
 
                 return employee;

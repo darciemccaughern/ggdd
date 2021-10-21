@@ -5,8 +5,10 @@ public class SalesEmployee extends Employee {
     private float totalSalesMonth;
 
 
-    public SalesEmployee(int employeeId, float salary, String fName, String lName, String address, String city, String county, String postalCode, String bankNo, String nin,int isBusinessHead, float commissionRate, float totalSalesMonth) {
-        super(employeeId, salary, fName, lName, address, city, county, postalCode, bankNo, nin, isBusinessHead);
+
+    public SalesEmployee(int employeeId, float salary, String fName, String lName, String address, String city, String county, String postalCode, String bankNo, String nin, String sortCode, float commissionRate, float totalSalesMonth) {
+        super(employeeId, salary, fName, lName, address, city, county, postalCode, bankNo, nin, sortCode );
+
         this.commissionRate = commissionRate;
         this.setTotalSalesMonth(totalSalesMonth);
     }

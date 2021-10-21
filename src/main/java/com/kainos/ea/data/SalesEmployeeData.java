@@ -53,7 +53,7 @@ public class SalesEmployeeData {
                         rs.getString("postalCode"),
                         rs.getString("bankNo"),
                         rs.getString("nin"),
-                        rs.getInt("isBusinessHead"),
+                        rs.getString("sortCode"),
                         rs.getFloat("commissionRate"),
                         rs.getFloat("totalSalesMonth")
                 );
@@ -88,7 +88,7 @@ public class SalesEmployeeData {
                         rs.getString("postalCode"),
                         rs.getString("bankNo"),
                         rs.getString("nin"),
-                        rs.getInt("isBusinessHead"),
+                        rs.getString("sortCode"),
                         rs.getFloat("commissionRate"),
                         rs.getFloat("totalSalesMonth")
                 );
