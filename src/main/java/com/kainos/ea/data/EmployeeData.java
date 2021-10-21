@@ -2,7 +2,6 @@ package com.kainos.ea.data;
 
 
 import com.kainos.ea.model.Employee;
-import com.kainos.ea.model.SalesEmployee;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ public class EmployeeData {
         try {
 
 
-            String query = "INSERT INTO employee (fName, lName, address, city, county, postalCode, sortCode, startSalary, nin, isBuisnessHead)"
+            String query = "INSERT INTO employee (fName, lName, address, city, county, postalCode, sortCode, startSalary, nin, sortCode)"
                     + " VALUES (?,?,?,?,?,?,?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -28,7 +27,6 @@ public class EmployeeData {
             statement.setString(7,employee.getSortCode());
             statement.setFloat(8, employee.getSalary());
             statement.setString(9, employee.getNin());
-            statement.setInt(10,employee.getIsBuisnessHead());
 
 
             statement.executeUpdate();
@@ -37,7 +35,6 @@ public class EmployeeData {
             rs.next();
             auto_id = rs.getInt(1);
 
-            return auto_id;
         } catch(SQLException ex){
             ex.printStackTrace(); // Bad practice alert!
         }
@@ -65,7 +62,6 @@ public class EmployeeData {
                         rs.getString("postalCode"),
                         rs.getString("bankNo"),
                         rs.getString("nin"),
-                        rs.getInt("isBusinessHead"),
                         rs.getString("sortCode")
                 );
 
@@ -97,8 +93,7 @@ public class EmployeeData {
                         rs.getString("postalCode"),
                         rs.getString("bankNo"),
                         rs.getString("nin"),
-                        rs.getString("sortCode"),
-                        rs.getInt("isBusinessHead")
+                        rs.getString("sortCode")
                 );
 
                 return employee;

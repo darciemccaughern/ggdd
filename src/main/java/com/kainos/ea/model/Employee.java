@@ -14,7 +14,7 @@ public class Employee {
     private String nin;
     private int isBuisnessHead;
 
-    public Employee(int employeeId,float salary, String fName, String lName, String address, String city, String county, String postalCode, String bankNo, String nin,String sortCode, int isBuinessHead) {
+    public Employee(int employeeId,float salary, String fName, String lName, String address, String city, String county, String postalCode, String bankNo, String nin, String sortCode) {
 
         this.setEmployeeId(employeeId);
         this.setSalary(salary);
@@ -26,7 +26,6 @@ public class Employee {
         this.setPostalCode(postalCode);
         this.setBankNo(bankNo);
         this.setNin(nin);
-        this.setIsBusnessHead(isBuisnessHead);
         this.setSortCode(sortCode);
 
     }
@@ -110,14 +109,6 @@ public class Employee {
 
     public void setNin(String nin) {
         this.nin = nin;
-    }
-
-    public int getIsBuisnessHead() {
-        return isBuisnessHead;
-    }
-
-    public void setIsBusnessHead(int isBusnessHead) {
-        this.isBuisnessHead = isBusnessHead;
     }
 
     public String getSortCode() {
