@@ -14,7 +14,7 @@ public class EmployeeData {
         try {
 
 
-            String query = "INSERT INTO employee (fName, lName, address, city, county, postalCode, sortCode, startSalary, nin, sortCode)"
+            String query = "INSERT INTO employee (fName, lName, address, city, county, postalCode, accNumber, sortCode, startSalary, nin)"
                     + " VALUES (?,?,?,?,?,?,?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -24,9 +24,10 @@ public class EmployeeData {
             statement.setString(4, employee.getCity());
             statement.setString(5, employee.getCounty());
             statement.setString(6, employee.getPostalCode());
-            statement.setString(7,employee.getSortCode());
-            statement.setFloat(8, employee.getSalary());
-            statement.setString(9, employee.getNin());
+            statement.setString(7, employee.getBankNo());
+            statement.setString(8,employee.getSortCode());
+            statement.setFloat(9, employee.getSalary());
+            statement.setString(10, employee.getNin());
 
 
             statement.executeUpdate();

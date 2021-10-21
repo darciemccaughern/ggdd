@@ -63,6 +63,7 @@ public class HR {
     @Path("/create/employee")
     @Consumes(MediaType.APPLICATION_JSON)
     public void createEmployee(Employee employee) {
+        System.out.println(employee.getfName());
         employeeService.insertEmployeeIntoDatabase(employee);
     }
 

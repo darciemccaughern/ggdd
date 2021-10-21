@@ -1,5 +1,8 @@
 package com.kainos.ea.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Employee {
     private int employeeId; // employee number
     private float salary; // employee salary
@@ -12,9 +15,9 @@ public class Employee {
     private String postalCode;
     private String bankNo;
     private String nin;
-    private int isBuisnessHead;
 
-    public Employee(int employeeId,float salary, String fName, String lName, String address, String city, String county, String postalCode, String bankNo, String nin, String sortCode) {
+    @JsonCreator
+    public Employee(@JsonProperty("employeeId") int employeeId,@JsonProperty("salary") float salary,@JsonProperty("fName") String fName,@JsonProperty("lName") String lName,@JsonProperty("address") String address,@JsonProperty("city") String city,@JsonProperty("county") String county,@JsonProperty("postalCode") String postalCode,@JsonProperty("bankNo") String bankNo,@JsonProperty("nin") String nin,@JsonProperty("sortCode") String sortCode) {
 
         this.setEmployeeId(employeeId);
         this.setSalary(salary);
@@ -30,6 +33,9 @@ public class Employee {
 
     }
 
+    public Employee(){
+
+    }
 
     public int getEmployeeId() {
         return employeeId;
@@ -87,6 +93,14 @@ public class Employee {
         this.county = county;
     }
 
+    public String getSortCode() {
+        return sortCode;
+    }
+
+    public void setSortCode(String sortCode) {
+        this.sortCode = sortCode;
+    }
+
     public String getPostalCode() {
         return postalCode;
     }
@@ -111,11 +125,4 @@ public class Employee {
         this.nin = nin;
     }
 
-    public String getSortCode() {
-        return sortCode;
-    }
-
-    public void setSortCode(String sortCode) {
-        this.sortCode = sortCode;
-    }
 }
