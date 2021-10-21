@@ -36,8 +36,7 @@ employeeId SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
  
 
  CREATE TABLE HR (
- HR_Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
- employeeId SMALLINT UNSIGNED NOT NULL,
+ employeeId SMALLINT UNSIGNED NOT NULL PRIMARY KEY,
  CONSTRAINT fkHREmployeeId FOREIGN KEY (employeeId) REFERENCES Employee (employeeId)
  );
  
@@ -79,12 +78,6 @@ CREATE TABLE Finance (
 
  
 
- -- Deleting HR ID and making EmpID PK :)
- ALTER TABLE HR
- DROP COLUMN HR_Id;
- 
- ALTER TABLE HR
- ADD PRIMARY KEY(employeeId);
  
  DELIMITER //
 CREATE procedure EmployeesPerDepartment (IN employeeId SMALLINT)
